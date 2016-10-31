@@ -1,0 +1,40 @@
+Organizing 'members' data
+
+{
+	id: int,
+	email: string,
+	password: string,
+	member_since: date,
+	personal: {
+		first_name: string,
+		last_name: string,
+		dob: string,
+		phone: int,
+		address: {
+			addr1: string,
+			addr2: string,
+			city: string,
+			state: string,
+			zip: int
+		},
+		emergency_contact: {
+			name: string,
+			phone: int,
+			relationship: string
+		}
+	},
+	education: [{
+		school: string,
+		grad_yr: int
+	}],
+	sports: [{
+		sport: string,
+		season: string,
+		year: int,
+		position: string,
+		jersey_size: string,
+		jersey_number: string
+	}],
+	date_created: date,
+	date_updated: date
+}

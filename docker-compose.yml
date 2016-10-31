@@ -1,0 +1,25 @@
+version: '2'
+services:
+  db:
+    image: mongo:latest
+    container_name: impact_db
+    # must disable for docker for windows
+    # only works with linux hosts
+    #volumes:
+    #  - ./data/db:/data/db
+    ports:
+      - "27017:27017"
+    command: "--smallfiles --logpath=/dev/null"
+
+  app:
+    build: .
+    links:
+      - db
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/home/app/
+      - /home/app/node_modules
